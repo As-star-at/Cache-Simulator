@@ -1,4 +1,4 @@
-                                                                       MyCacheSim: A Basic Cache Simulator
+MyCacheSim: A Basic Cache Simulator
 
 Project Overview:
 MyCacheSim is a C++ implementation of a basic cache simulator. It models the behavior of a single-level cache, taking various parameters such as cache size, associativity, block size, replacement policy, and write policy. The simulator processes memory access trace files and outputs key performance statistics, including hit rates and total simulation runtime.
@@ -41,7 +41,7 @@ Building the Project:
 Clone this repository:
 Bash
 
-git clone https://github.com/YourUsername/MyCacheSim.git
+git clone https://github.com/As-star-at/Cache-Simulator.git
 cd MyCacheSim
 Compile the source code. Assuming your main source file is cache_sim.cpp (or main.cpp), you can use:
 Bash
