@@ -481,13 +481,24 @@ cache* cache::take_from_file(const string& config_file){
     return nullptr;
 }
 
-int main()
-{
-    cache* mycache= cache::take_from_file("D:\\SVNIT CS\\2nd Year\\SEM_4\\Cache Simulator Project\\config files\\mega.conf");
-    if(mycache){
-        mycache->setup_cache();
-        mycache->start_cache("D:\\SVNIT CS\\2nd Year\\SEM_4\\Cache Simulator Project\\trace files\\traces\\gzip.trace");
-        delete mycache;
+int main(int argc, char* argv[]) {
+    if (argc != 3) {
+        std::cerr << "Usage: " << argv[0] << " <config_file> <trace_file>" << std::endl;
+        return 1; //error
     }
-    return 0;
+
+    std::string configFilePath = argv[1];
+    std::string traceFilePath = argv[2];
+
+    cache* mycache = cache::take_from_file(configFilePath);
+
+    if (mycache) {
+        mycache->setup_cache();
+        mycache->start_cache(traceFilePath);
+        delete mycache;
+        return 0; //all okay
+    } else {
+        std::cerr << "Error: Could not initialize cache from config file: " << configFilePath << std::endl;
+        return 1; //error
+    }
 }
